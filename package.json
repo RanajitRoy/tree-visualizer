@@ -1,0 +1,30 @@
+{
+    "name": "tree-visualizer",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "predeploy": "npm run build:prod",
+        "deploy": "gh-pages -d dist",
+        "build": "webpack --mode=development",
+        "build:prod": "webpack -p",
+        "start": "webpack-dev-server --open",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RanajitRoy/tree-visualizer.git"
+    },
+    "author": "Ranajit Roy",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/RanajitRoy/tree-visualizer/issues"
+    },
+    "homepage": "http://RanajitRoy.github.io/tree-visualizer",
+    "devDependencies": {
+        "gh-pages": "^3.1.0",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12",
+        "webpack-dev-server": "^3.11.0"
+    }
+}
