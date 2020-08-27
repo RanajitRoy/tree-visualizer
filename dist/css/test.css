@@ -1,3 +1,66 @@
-#root {
-    font-size: 30px;
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    font-size: 2rem;
+    background-color: rgb(16, 187, 255);
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    padding: 0.2rem;
+    border-radius: 10px;
+    flex-grow: 2;
+}
+
+#input {
+    display: flex;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: bisque;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+#canvas {
+    flex-grow: 100;
+    border-radius: 10px;
+    border: lightblue;
+    border-style: solid;
+    padding: 20px;
+}
+
+.logo {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.options {
+    font-size: 70%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    align-content: flex-end;
+}
+
+.logo,
+.options {
+    margin: 0.7rem;
+}
+
+.logo:hover,
+.options > a:hover {
+    cursor: pointer;
+}
+
+.insert,
+.delete {
+    margin: 0.3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }

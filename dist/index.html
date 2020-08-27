@@ -4,10 +4,30 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Tree Visualizer</title>
-        <script src="js/bundle.js"></script>
         <link rel="stylesheet" type="text/css" href="css/test.css" />
     </head>
     <body>
-        <div id="root"></div>
+        <div id="header">
+            <div class="logo">
+                <span>Tree Visualizer</span>
+            </div>
+            <div class="options">
+                <a>B.S.T.</a>
+            </div>
+        </div>
+        <div id="input">
+            <div class="insert">
+                <input type="number" name="insert" id="ins" />
+                <button>insert</button>
+            </div>
+            <div class="delete">
+                <input type="number" name="delete" id="del" />
+                <button>delete</button>
+            </div>
+        </div>
+        <div id="canvas">
+            <canvas></canvas>
+        </div>
+        <script src="js/bundle.js"></script>
     </body>
 </html>
