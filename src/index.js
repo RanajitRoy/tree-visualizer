@@ -17,17 +17,19 @@ console.log(bst);
 
 console.log(inorder(bst));
 
-console.log("delete ", bst.delete(23));
-console.log(bst);
-console.log("delete ", bst.delete(22));
-console.log(bst);
-console.log("delete ", bst.delete(60));
-console.log(bst);
-console.log("delete ", bst.delete(10));
-console.log(bst);
-console.log("delete ", bst.delete(100));
-console.log(bst);
+console.log(bst.search(25));
+console.log(bst.search(11));
+console.log(bst.search(22));
+console.log(bst.search(60));
+console.log(bst.search(100));
 
+console.log("delete ", bst.delete(23));
+console.log("delete ", bst.delete(22));
+console.log("delete ", bst.delete(60));
+console.log(inorder(bst));
+console.log("delete ", bst.delete(10));
+console.log(inorder(bst));
+console.log("delete ", bst.delete(100));
 console.log(inorder(bst));
 
 var canvas = document.querySelector("canvas");
