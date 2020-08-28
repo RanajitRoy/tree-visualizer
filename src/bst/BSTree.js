@@ -66,10 +66,13 @@ BSTree.prototype.delete = function (key) {
         let parent = deleteNode.parent;
         if (parent === null) {
             this.root = deleteNode.left;
+            this.root.parent = null;
         } else if (parent.left === deleteNode) {
             parent.left = deleteNode.left;
+            deleteNode.left.parent = parent;
         } else {
             parent.right = deleteNode.left;
+            deleteNode.left.parent = parent;
         }
     }
 
@@ -78,10 +81,13 @@ BSTree.prototype.delete = function (key) {
         let parent = deleteNode.parent;
         if (parent === null) {
             this.root = deleteNode.right;
+            this.root.parent = null;
         } else if (parent.left === deleteNode) {
             parent.left = deleteNode.right;
+            deleteNode.right.parent = parent;
         } else {
             parent.right = deleteNode.right;
+            deleteNode.right.parent = parent;
         }
     }
 
@@ -91,10 +97,40 @@ BSTree.prototype.delete = function (key) {
         this.delete(replacement.value);
         let parent = deleteNode.parent;
         if (parent === null) {
+            // replacement left child connections
+            replacement.left = this.root.left;
+            replacement.left && (replacement.left.parent = replacement);
+
+            // replacement right child connections
+            replacement.right = this.root.right;
+            replacement.right && (replacement.right.parent = replacement);
+
+            // Tree connections
+            replacement.parent = null;
             this.root = replacement;
         } else if (parent.left === deleteNode) {
+            // replacement left child connections
+            replacement.left = deleteNode.left;
+            replacement.left && (replacement.left.parent = replacement);
+
+            // replacement right child connections
+            replacement.right = deleteNode.right;
+            replacement.right && (replacement.right.parent = replacement);
+
+            // parent connections
+            replacement.parent = parent;
             parent.left = replacement;
         } else {
+            // replacement left child connections
+            replacement.left = deleteNode.left;
+            replacement.left && (replacement.left.parent = replacement);
+
+            // replacement right child connections
+            replacement.right = deleteNode.right;
+            replacement.right && (replacement.right.parent = replacement);
+
+            // parent connections
+            replacement.parent = parent;
             parent.right = replacement;
         }
     }

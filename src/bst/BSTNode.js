@@ -14,13 +14,6 @@ BSTNode.prototype.getDescendantSuccessor = function () {
         }
         return temp;
     }
-    if (this.left !== null) {
-        temp = this.left;
-        if (temp.right !== null) {
-            temp = temp.right;
-        }
-        return temp;
-    }
     return null;
 };
 
