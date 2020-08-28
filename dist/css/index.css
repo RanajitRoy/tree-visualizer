@@ -42,15 +42,13 @@ body {
 
 .options {
     font-size: 70%;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    align-content: flex-end;
 }
 
 .logo,
 .options {
+    display: flex;
     margin: 0.7rem;
+    align-items: center;
 }
 
 .logo:hover,
