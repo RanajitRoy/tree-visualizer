@@ -1,5 +1,14 @@
 import BSTNode from "./BSTNode";
 
+function updateHeights(node) {
+    if (node === null) {
+        return -1;
+    }
+    node.height =
+        Math.max(updateHeights(node.left), updateHeights(node.right)) + 1;
+    return node.height;
+}
+
 function BSTree() {
     this.root = null;
 }
@@ -7,12 +16,14 @@ function BSTree() {
 BSTree.prototype.insert = function (val) {
     if (this.root === null) {
         this.root = new BSTNode(val, null);
+        updateHeights(this.root);
     } else {
         let temp = this.root;
         while (true) {
             if (val >= temp.value) {
                 if (temp.right === null) {
                     temp.right = new BSTNode(val, temp);
+                    updateHeights(this.root);
                     return;
                 } else {
                     temp = temp.right;
@@ -20,6 +31,7 @@ BSTree.prototype.insert = function (val) {
             } else {
                 if (temp.left === null) {
                     temp.left = new BSTNode(val, temp);
+                    updateHeights(this.root);
                     return;
                 } else {
                     temp = temp.left;
@@ -135,6 +147,7 @@ BSTree.prototype.delete = function (key) {
         }
     }
 
+    updateHeights(this.root);
     return deleteNode;
 };
 
