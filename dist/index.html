@@ -17,16 +17,34 @@
         </div>
         <div id="input">
             <div class="insert">
-                <input type="number" name="insert" id="ins" />
-                <button>insert</button>
+                <label for="insert">
+                    Insert value (-10000&gt;value&lt;10000):
+                </label>
+                <input
+                    type="number"
+                    name="insert"
+                    id="insText"
+                    value="0"
+                    min="-9999"
+                    max="9999"
+                />
+                <button id="insButton">insert</button>
             </div>
             <div class="delete">
-                <input type="number" name="delete" id="del" />
-                <button>delete</button>
+                <label for="delete"> Delete value: </label>
+                <input
+                    type="number"
+                    name="delete"
+                    id="delText"
+                    value="0"
+                    min="-9999"
+                    max="9999"
+                />
+                <button id="delButton">delete</button>
             </div>
         </div>
-        <div id="canvas">
-            <canvas></canvas>
+        <div id="canvasDiv">
+            <canvas id="canvas"></canvas>
         </div>
         <script src="js/bundle.js"></script>
     </body>
