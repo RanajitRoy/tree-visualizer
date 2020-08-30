@@ -1,3 +1,4 @@
+html,
 body {
     padding: 0;
     margin: 0;
@@ -27,12 +28,11 @@ body {
     flex-grow: 1;
 }
 
-#canvas {
+#canvasDiv {
     flex-grow: 100;
     border-radius: 10px;
     border: lightblue;
     border-style: solid;
-    padding: 20px;
 }
 
 .logo {
