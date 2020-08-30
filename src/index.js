@@ -1,45 +1,95 @@
 "use strict";
 
+import _globals_ from "./globals";
 import BSTree from "./bst/BSTree";
-import { inorder } from "./bst/BSTTraversals";
+import { inorderOnNode } from "./bst/BSTTraversals";
 
-var bst = new BSTree();
+let canvasDiv = document.getElementById("canvasDiv");
+_globals_.canvasWidth = parseFloat(
+    window.getComputedStyle(canvasDiv).getPropertyValue("width")
+);
+_globals_.canvasHeight = parseFloat(
+    window.getComputedStyle(canvasDiv).getPropertyValue("height")
+);
 
-bst.insert(60);
-bst.insert(201);
-bst.insert(22);
-bst.insert(100);
-bst.insert(20);
-bst.insert(10);
-bst.insert(25);
+let canvas = document.getElementById("canvas");
+canvas.height = _globals_.canvasHeight;
+canvas.width = _globals_.canvasWidth;
+_globals_.ctx = canvas.getContext("2d");
 
-console.log(bst);
+window.addEventListener("resize", function () {
+    canvas.width = 0;
+    canvas.height = 0;
 
-console.log(inorder(bst));
+    _globals_.canvasWidth = parseFloat(
+        window.getComputedStyle(canvasDiv).getPropertyValue("width")
+    );
+    _globals_.canvasHeight = parseFloat(
+        window.getComputedStyle(canvasDiv).getPropertyValue("height")
+    );
 
-console.log(bst.search(25));
-console.log(bst.search(11));
-console.log(bst.search(22));
-console.log(bst.search(60));
-console.log(bst.search(100));
+    canvas.height = _globals_.canvasHeight;
+    canvas.width = _globals_.canvasWidth;
 
-console.log("delete ", bst.delete(23));
-console.log("delete ", bst.delete(22));
-console.log("delete ", bst.delete(60));
-console.log(inorder(bst));
-console.log("delete ", bst.delete(10));
-console.log(inorder(bst));
-console.log("delete ", bst.delete(100));
-console.log(inorder(bst));
+    _globals_.tree.updateAllNodeUI();
+});
 
-var canvas = document.querySelector("canvas");
+let bst = null;
+_globals_.tree = bst = new BSTree();
 
-var canvasWidth = canvas.width;
-var canvasHeight = canvas.height;
+let insertText = document.getElementById("insText");
+let deleteText = document.getElementById("delText");
+let insertButton = document.getElementById("insButton");
+let deleteButton = document.getElementById("delButton");
 
-console.log(canvasWidth, canvasHeight);
-console.log(canvas);
+insertButton.addEventListener("click", function (event) {
+    event.target.disabled = true;
+    let value = parseInt(insertText.value);
+    if (!isNaN(value) && value > -10000 && value < 10000) {
+        bst.insert(value);
+        bst.updateAllNodeUI();
+    }
 
-var ctx = canvas.getContext("2d");
+    event.target.disabled = false;
+});
 
-ctx.fillRect(20, 20, 50, 50);
+deleteButton.addEventListener("click", function (event) {
+    event.target.disabled = true;
+    let value = parseInt(deleteText.value);
+    if (!isNaN(value) && value > -10000 && value < 10000) {
+        bst.delete(value);
+        bst.updateAllNodeUI();
+    }
+    event.target.disabled = false;
+});
+
+// bst.insert(60);
+// bst.insert(201);
+// bst.insert(22);
+// bst.insert(100);
+// bst.insert(20);
+// bst.insert(10);
+// bst.insert(25);
+
+// bst.insert(21);
+// bst.insert(23);
+// bst.insert(26);
+
+// console.log(bst);
+
+// let listNode = inorderOnNode(bst.root);
+
+// console.log(bst.search(25));
+// console.log(bst.search(11));
+// console.log(bst.search(22));
+// console.log(bst.search(60));
+// console.log(bst.search(100));
+
+// console.log("delete ", bst.delete(23));
+// console.log("delete ", bst.delete(22));
+// console.log("delete ", bst.delete(60));
+// console.log(inorder(bst));
+// console.log("delete ", bst.delete(10));
+// console.log(inorder(bst));
+// console.log("delete ", bst.delete(100));
+// console.log(inorder(bst));
