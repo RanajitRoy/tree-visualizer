@@ -4,10 +4,48 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Tree Visualizer</title>
-        <script src="js/bundle.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/test.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
     </head>
     <body>
-        <div id="root"></div>
+        <div id="header">
+            <div class="logo">
+                <span>Tree Visualizer</span>
+            </div>
+            <div class="options">
+                <a>B.S.T.</a>
+            </div>
+        </div>
+        <div id="input">
+            <div class="insert">
+                <label for="insert">
+                    Insert value (-10000&gt;value&lt;10000):
+                </label>
+                <input
+                    type="number"
+                    name="insert"
+                    id="insText"
+                    value="0"
+                    min="-9999"
+                    max="9999"
+                />
+                <button id="insButton">insert</button>
+            </div>
+            <div class="delete">
+                <label for="delete"> Delete value: </label>
+                <input
+                    type="number"
+                    name="delete"
+                    id="delText"
+                    value="0"
+                    min="-9999"
+                    max="9999"
+                />
+                <button id="delButton">delete</button>
+            </div>
+        </div>
+        <div id="canvasDiv">
+            <canvas id="canvas"></canvas>
+        </div>
+        <script src="js/bundle.js"></script>
     </body>
 </html>
