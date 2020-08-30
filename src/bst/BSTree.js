@@ -1,4 +1,6 @@
+import _globals_ from "../globals";
 import BSTNode from "./BSTNode";
+import { UITreeNode } from "./BSTui";
 
 function updateHeights(node) {
     if (node === null) {
@@ -17,6 +19,7 @@ BSTree.prototype.insert = function (val) {
     if (this.root === null) {
         this.root = new BSTNode(val, null);
         updateHeights(this.root);
+        this.root.ui = new UITreeNode(this.root);
     } else {
         let temp = this.root;
         while (true) {
@@ -24,6 +27,7 @@ BSTree.prototype.insert = function (val) {
                 if (temp.right === null) {
                     temp.right = new BSTNode(val, temp);
                     updateHeights(this.root);
+                    temp.right.ui = new UITreeNode(temp.right);
                     return;
                 } else {
                     temp = temp.right;
@@ -32,6 +36,7 @@ BSTree.prototype.insert = function (val) {
                 if (temp.left === null) {
                     temp.left = new BSTNode(val, temp);
                     updateHeights(this.root);
+                    temp.left.ui = new UITreeNode(temp.left);
                     return;
                 } else {
                     temp = temp.left;
@@ -149,6 +154,19 @@ BSTree.prototype.delete = function (key) {
 
     updateHeights(this.root);
     return deleteNode;
+};
+
+BSTree.prototype.updateAllNodeUI = function () {
+    if (this.root !== null) {
+        this.root.ui.updateAllStateUIFromNode();
+    } else {
+        _globals_.ctx.clearRect(
+            0,
+            0,
+            _globals_.canvasWidth,
+            _globals_.canvasHeight
+        );
+    }
 };
 
 export default BSTree;

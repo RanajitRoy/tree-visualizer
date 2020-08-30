@@ -4,6 +4,7 @@ function BSTNode(val, parentNode) {
     this.right = null;
     this.parent = parentNode;
     this.height = null;
+    this.ui = null;
 }
 
 BSTNode.prototype.getDescendantSuccessor = function () {
