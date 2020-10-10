@@ -8,6 +8,13 @@ var _globals_ = {
     ctx: null,
     canvasPadding: null,
     tree: null,
+
+    updateUIHook: null,
+    updateUI() {
+        if (this.updateUIHook !== null) {
+            this.updateUIHook();
+        }
+    },
 };
 
 export default _globals_;
