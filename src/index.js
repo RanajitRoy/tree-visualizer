@@ -5,10 +5,11 @@ import BSTree from "./bst/BSTree";
 import { inorderOnNode } from "./bst/BSTTraversals";
 
 let canvasDiv = document.getElementById("canvasDiv");
-
 let canvas = document.getElementById("canvas");
 let canvasDivStyle = window.getComputedStyle(canvasDiv);
 _globals_.ctx = canvas.getContext("2d");
+
+let nav = document.getElementById("nav");
 
 function updateCanvasSize() {
     _globals_.canvasWidth = parseFloat(
@@ -17,8 +18,16 @@ function updateCanvasSize() {
     _globals_.canvasHeight = parseFloat(
         canvasDivStyle.getPropertyValue("height")
     );
-    canvas.height = _globals_.canvasHeight;
-    canvas.width = _globals_.canvasWidth;
+    canvas.height = _globals_.canvasHeight - 10;
+    canvas.width = _globals_.canvasWidth - 10;
+}
+
+function showNav() {
+    nav.className = "navShow";
+}
+
+function hideNav() {
+    nav.className = "navHide";
 }
 
 window.addEventListener("resize", function () {
@@ -65,7 +74,13 @@ logo.addEventListener("click", function (event) {
     _globals_.updateUIHook = null;
     variable.className = "variableNone";
     homevariable.className = "homeVariable";
+    hideNav();
 });
+
+function perOptionClickHandler() {
+    updateCanvasSize();
+    showNav();
+}
 
 let bstNav = document.getElementById("bstnav");
 let bstHome = document.getElementById("bsthome");
@@ -77,7 +92,7 @@ let bstHandler = function (event) {
     variable.className = "variable";
     homevariable.className = "homeVariableNone";
 
-    updateCanvasSize();
+    perOptionClickHandler();
 };
 bstNav.addEventListener("click", bstHandler);
 bstHome.addEventListener("click", bstHandler);
