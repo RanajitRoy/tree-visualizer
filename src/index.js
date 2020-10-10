@@ -78,22 +78,40 @@ logo.addEventListener("click", function (event) {
 });
 
 function perOptionClickHandler() {
+    variable.className = "variable";
+    homevariable.className = "homeVariableNone";
+
     updateCanvasSize();
     showNav();
 }
 
+/* To Add Further Trees:
+ * -> assign new Tree Object inside _globals_ as shown below
+ * -> the Tree Object should contain insert and delete methods
+ * -> assign whole tree UI update method inside _globals_ onto
+ *    the hook provided with binding to the Tree Object
+ * -> add HTML tags for the same in index.html in 2 places marked
+ *    with "ADD HERE" and with proper class and id as given
+ * -> create a event handler as given below tailed with a call
+ *    to perOptionClickHandler and add it to both newly added
+ *    HTML tags for "click" event
+ */
+
 let bstNav = document.getElementById("bstnav");
 let bstHome = document.getElementById("bsthome");
 let bstHandler = function (event) {
+    // assigning BSTree Object to _globals_.tree
     _globals_.tree = new BSTree();
+
+    // assigning AllUIUpdate method binded with the Tree Object to _globals_.updateUIHook
     _globals_.updateUIHook = _globals_.tree.updateAllNodeUI.bind(
         _globals_.tree
     );
-    variable.className = "variable";
-    homevariable.className = "homeVariableNone";
 
+    // tailed with a call to perOptionClickHandler
     perOptionClickHandler();
 };
+// added event listeners to both HTML tags for "click" event
 bstNav.addEventListener("click", bstHandler);
 bstHome.addEventListener("click", bstHandler);
 
