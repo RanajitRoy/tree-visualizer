@@ -12,10 +12,31 @@ body {
     background-color: rgb(16, 187, 255);
     display: flex;
     justify-content: flex-start;
-    align-content: center;
+    align-items: center;
     padding: 0.2rem;
     border-radius: 10px;
-    flex-grow: 2;
+}
+
+.homeVariable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 100;
+    justify-content: center;
+}
+
+.homeVariableNone {
+    display: none;
+}
+
+.variable {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 100;
+}
+
+.variableNone {
+    display: None;
 }
 
 #input {
@@ -25,34 +46,35 @@ body {
     background-color: bisque;
     align-items: stretch;
     justify-content: flex-start;
-    flex-grow: 1;
 }
 
 #canvasDiv {
-    flex-grow: 100;
     border-radius: 10px;
     border: lightblue;
     border-style: solid;
+    flex-grow: 100;
 }
 
 .logo {
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-family: "Brush Script MT", "cursive";
 }
 
 .options {
-    font-size: 70%;
+    font-size: 60%;
+    border-radius: 6px;
+    padding: 0.4rem;
+    background-color: rgb(116, 216, 255);
 }
 
 .logo,
 .options {
-    display: flex;
-    margin: 0.7rem;
-    align-items: center;
+    margin: 0.7rem 1.5rem 0.7rem 1.5rem;
+    vertical-align: middle;
 }
 
-.logo:hover,
-.options > a:hover {
+.homeButton:hover,
+.logo > span:hover,
+.options {
     cursor: pointer;
 }
 
@@ -61,4 +83,12 @@ body {
     margin: 0.3rem;
     margin-left: 1rem;
     margin-right: 1rem;
+}
+
+.homeButton {
+    padding: 2rem 5rem 2rem 5rem;
+    background-color: rgb(116, 216, 255);
+    border-radius: 2rem;
+    margin: 1rem;
+    font-size: 2rem;
 }
