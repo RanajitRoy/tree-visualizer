@@ -8,43 +8,53 @@
     </head>
     <body>
         <div id="header">
-            <div class="logo">
+            <div class="logo" id="logoheader">
                 <span>Tree Visualizer</span>
             </div>
-            <div class="options">
-                <a>B.S.T.</a>
+            <div class="options" id="bstnav">
+                <span>B.S.T.</span>
             </div>
         </div>
-        <div id="input">
-            <div class="insert">
-                <label for="insert">
-                    Insert value (-10000&gt;value&lt;10000):
-                </label>
-                <input
-                    type="number"
-                    name="insert"
-                    id="insText"
-                    value="0"
-                    min="-9999"
-                    max="9999"
-                />
-                <button id="insButton">insert</button>
+        <div id="homevariable" class="homeVariable">
+            <div class="homeButton" id="bsthome">
+                <span>B.S.T.</span>
             </div>
-            <div class="delete">
-                <label for="delete"> Delete value: </label>
-                <input
-                    type="number"
-                    name="delete"
-                    id="delText"
-                    value="0"
-                    min="-9999"
-                    max="9999"
-                />
-                <button id="delButton">delete</button>
+            <div class="homeButton" id="heaphome">
+                <span>Heap</span>
             </div>
         </div>
-        <div id="canvasDiv">
-            <canvas id="canvas"></canvas>
+        <div id="variable" class="variableNone">
+            <div id="input">
+                <div class="insert">
+                    <label for="insert">
+                        Insert value (-10000&gt;value&lt;10000):
+                    </label>
+                    <input
+                        type="number"
+                        name="insert"
+                        id="insText"
+                        value="0"
+                        min="-9999"
+                        max="9999"
+                    />
+                    <button id="insButton">insert</button>
+                </div>
+                <div class="delete">
+                    <label for="delete"> Delete value: </label>
+                    <input
+                        type="number"
+                        name="delete"
+                        id="delText"
+                        value="0"
+                        min="-9999"
+                        max="9999"
+                    />
+                    <button id="delButton">delete</button>
+                </div>
+            </div>
+            <div id="canvasDiv">
+                <canvas id="canvas"></canvas>
+            </div>
         </div>
         <script src="js/bundle.js"></script>
     </body>
